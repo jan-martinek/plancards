@@ -1,0 +1,12 @@
+extends: airbnb-base
+env:
+  browser: true
+plugins:
+  - import
+rules:
+  no-use-before-define: off
+  no-nested-ternary: off
+  no-new: off # pikaday
+  no-param-reassign: 
+    - error
+    - props: false

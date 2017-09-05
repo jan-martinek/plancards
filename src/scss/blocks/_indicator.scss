@@ -1,0 +1,17 @@
+.block-indicator {
+	.is-true, .is-false { padding: 1rem; }
+	.is-true { background-color: $success-color; }	
+	.is-false { background-color: $warning-color; }
+	
+	p { margin-bottom: 0; }
+	p.icon { float: left; }
+	p.desc { padding-left: 1.3rem; }
+}
+
+.fill-mode .block-indicator {
+	.is-true { display: none; }
+	&.true {
+		.is-true { display: block; }
+		.is-false { display: none; }
+	}
+}

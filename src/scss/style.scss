@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+@import "settings";
+@import "foundation";
+@include foundation-everything;
+@import "font-awesome";
+@import "./../../node_modules/pikaday/scss/pikaday.scss";
+
+html, body {
+	margin-top: 35px;	
+}
+
+h1, h2, h3, h4 { 
+	margin-bottom: 0; 
+}
+
+.top-bar {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+	
+	a {
+		color: #444;	
+		&:hover { color: black; }
+	}
+}
+
+header, footer {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding: 2em 1em;
+	background: #eee;
+}
+
+p {
+	padding: 0.5rem 0;
+}
+
+.card-name, [name="_activity-name"] {
+	font-weight: bold;
+}
+
+.number {
+	text-align: right;
+}
+
+#card {
+	margin-top: 1.5rem;
+}
+
+.fill-mode {
+	.hide-in-fill-mode { display: none; }
+	
+	.block-tools, .key-wrapper {
+		display: none;
+	}
+	
+	.mode-toggle {
+		.fa-check-circle, .edit-text { display: none; }
+	}
+}
+
+.edit-mode {
+	.hide-in-edit-mode { display: none; }
+	
+	.block {
+		border-top: 1px dotted red;
+		background: #eee;
+	}
+	
+	.block-tools {
+		height: 1rem;
+		
+		.internal-tools {
+			float: right;
+			position: relative;
+			padding: 0.5rem;
+			margin-right: -0.9375rem;
+			font-size: 0.9rem;
+			line-height: 1;
+			background: rgba(255, 255, 255, .3);
+		}
+		.external-tools {
+			margin-top: -0.7rem;
+			margin-left: -80px; 
+			float: left; 
+			
+			.tool { margin-right: 0.5em; }
+		}
+		
+		p {
+			color: #777;
+			font-weight: bold;
+		}
+	}
+	
+	.mode-toggle {
+		color: black;
+		background: $warning-color;
+		overflow: hidden;
+		
+		.fill-text { display: none; }
+		
+		.fa-check-circle { 
+			display: inline-block; 
+			color: white;
+			background: darken(#62E200, 5%);
+			
+			padding: 12px;
+			margin: -12px -18px -12px 3px;
+			
+			transition: transform 0.3s ease-out;
+		}
+		
+		&:hover { 
+			background: lighten(saturate($warning-color, 50%), 10%); 
+			.fa-times { color: saturate($alert-color, 50%); }
+			.fa-check-circle { transform: scale(1.3) translate(-2px, 0); }
+		}
+	}
+	
+	.add-block-tool {
+		position: relative;
+		top: 13px; left: -80px;
+		height: 0px;
+		
+		.arrow-up {
+			width: 0;
+			height: 0; 
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 7px solid #ccc;
+			
+			position: absolute;
+			top: -7px;
+			left: 0;
+		}
+		
+		.content {
+			border-radius: 2px 0 2px 2px;
+			background: #ccc;
+			padding: 2rem;
+		}
+		
+		.tool {
+			margin-left: 10px;
+		}
+	}
+	
+	.tool {
+		display: inline-block;
+		transition: transform 0.3s ease-out;
+		
+		&:hover {
+			transform: scale(1.3);
+		}
+		
+		&.removeBlock { color: $alert-color; }
+		&.swapBlocks { color: $secondary-color; }
+		&.addBlock { 
+			color: $secondary-color;
+			&.opened { transform: rotate(45deg); }
+		}
+	}
+	
+	.desc {
+		background: #eee;
+		border: 1px dotted #aaa;
+	}
+	
+	.block:first-child {
+		.external-tools a { display: none; }
+	}
+	
+	.key-wrapper {
+		margin-top: calc(-1rem - 1px);
+		
+		.input-group-label {
+			padding: 0 .4rem;	
+		}
+		
+		.fieldName {
+			color: white;
+			background: $primary-color;
+		}
+	}
+}
+
+hr {
+	border: 1px solid #aaa;
+	margin: 2em 0;
+}
+
+@import "./blocks";
+
+@media print {
+	.top-bar {
+		display: none;
+	}
+	
+	[type="text"], textarea {
+		border: none;
+		box-shadow: none;
+	}
+}
+
