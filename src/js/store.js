@@ -27,10 +27,15 @@ function unwrapExport(html) {
 }
 
 function exportCard(title, data) {
-  const contents = wrapExport(title, data);
+  const titleFallback = 'karta';
+  const contents = wrapExport(title || titleFallback, data);
   const blob = new Blob([contents], { type: 'text/plain;charset=utf-8' });
   const today = new Date().toISOString().split('T')[0];
-  fileSaver.saveAs(blob, `${title}-${today}.html`);
+  fileSaver.saveAs(blob, `${title || titleFallback}-${today}.html`);
+}
+
+function exportTemplate(title, data) {
+  exportCard(title || 'šablona', data);
 }
 
 function importCardFromFile(file, callback) {
@@ -51,4 +56,4 @@ function importCardFromUrl(url, callback) {
 }
 
 
-module.exports = { importCardFromFile, importCardFromUrl, exportCard };
+module.exports = { importCardFromFile, importCardFromUrl, exportCard, exportTemplate };

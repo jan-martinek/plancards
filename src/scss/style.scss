@@ -49,6 +49,27 @@ p {
 	margin-top: 1.5rem;
 }
 
+#opened-list {
+	i { 
+		color: $alert-color;
+		transition: transform 0.3s ease-out;
+		cursor: pointer;
+		
+		&:hover {
+			transform: scale(1.3);
+		}
+	}
+	
+	p {
+		margin-bottom: 0rem;
+	}
+	
+	.label {
+		color: #777;
+		background: #ddd;
+	}
+}
+
 .fill-mode {
 	.hide-in-fill-mode { display: none; }
 	
@@ -122,6 +143,7 @@ p {
 	
 	.add-block-tool {
 		position: relative;
+		z-index: 1;
 		top: 13px; left: -80px;
 		height: 0px;
 		
@@ -130,7 +152,7 @@ p {
 			height: 0; 
 			border-left: 7px solid transparent;
 			border-right: 7px solid transparent;
-			border-bottom: 7px solid #ccc;
+			border-bottom: 7px solid #bbb;
 			
 			position: absolute;
 			top: -7px;
@@ -140,11 +162,15 @@ p {
 		.content {
 			border-radius: 2px 0 2px 2px;
 			background: #ccc;
+			border: 1px solid #bbb;
 			padding: 2rem;
+			box-shadow: 0 0 5px rgba(0, 0, 0, .2);
 		}
 		
 		.tool {
-			margin-left: 10px;
+			padding: 5px;
+			background: white;
+			margin: 0 10px 10px 0;
 		}
 	}
 	
@@ -170,7 +196,7 @@ p {
 	}
 	
 	.block:first-child {
-		.external-tools a { display: none; }
+		.removeBlock, .external-tools a { display: none; }
 	}
 	
 	.key-wrapper {

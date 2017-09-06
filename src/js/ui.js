@@ -4,6 +4,7 @@ const moment = require('moment');
 const blocks = require('./blocks/blocks');
 const store = require('./store');
 const { allArray, findAncestor, updateCard } = require('./util');
+const opened = require('./opened');
 const translator = require('./translator');
 const t = translator.translate;
 
@@ -11,11 +12,16 @@ translator.selectDictionary('cs');
 
 // dashboard / card
 function closeCard() {
+  opened.save(pollData(), getTemplateName(), getCardName());
+  opened.close();
+
   document.getElementById('card').innerHTML = '';
   showDashboard();
 }
 
 function showDashboard() {
+  refreshOpened();
+
   setDisplay('card', 'none');
   setDisplay('toolbar', 'none');
   setDisplay('dashboard', 'flex');
@@ -135,23 +141,30 @@ function init() {
   initExportCard();
   initBlockTools();
   initCloseCard();
+  initOpened();
   preventSubmit();
   showDashboard();
 }
 
 function initExportCard() {
   document.getElementById('save').addEventListener('click', (e) => {
-    const nameEl = document.querySelector('[name="_activity-name"]');
-    const name = (nameEl && nameEl.value) ? nameEl.value : 'karta';
-    store.exportCard(name, pollData());
+    store.exportCard(getCardName(), pollData());
     e.preventDefault();
   });
-  document.getElementById('saveBlank').addEventListener('click', (e) => {
-    const nameEl = document.querySelector('.card-name');
-    const name = (nameEl && nameEl.innerHTML) ? nameEl.innerHTML : 'šablona';
-    store.exportCard(name, pollData(true));
+  document.getElementById('saveTemplate').addEventListener('click', (e) => {
+    store.exportCard(getTemplateName(), pollData(true));
     e.preventDefault();
   });
+}
+
+function getCardName() {
+  const nameEl = document.querySelector('[name="_activity-name"]');
+  return (nameEl && nameEl.value) ? nameEl.value : 'karta';
+}
+
+function getTemplateName() {
+  const nameEl = document.querySelector('.card-name');
+  return (nameEl && nameEl.innerHTML) ? nameEl.innerHTML : 'šablona';
 }
 
 function pollData(empty) {
@@ -169,8 +182,14 @@ function initImportCard() {
     store.importCardFromFile(e.target.files[0], loadCard);
     e.preventDefault();
   });
+
   const query = queryString.parse(window.location.search);
-  if (query.cardurl) store.importCardFromUrl(query.cardurl, loadCard);
+  if (query.cardurl) {
+    store.importCardFromUrl(query.cardurl, loadCard);
+
+    const loc = window.location;
+    history.replaceState(null, null, `${loc.pathname}`);
+  }
 }
 
 function loadCard(data) {
@@ -194,6 +213,47 @@ function preventSubmit() {
   document.getElementById('card').addEventListener('submit', (e) => {
     e.preventDefault();
   });
+}
+
+function initOpened() {
+  const listEl = document.getElementById('opened-list');
+
+  listEl.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (e.target.classList.contains('card-link')) {
+      loadCard(opened.open(e.target.dataset.id).card);
+    } else if (e.target.classList.contains('card-remove')) {
+      opened.remove(e.target.dataset.id);
+      refreshOpened();
+    }
+  });
+}
+
+function refreshOpened() {
+  const list = opened.list();
+  const listEl = document.getElementById('opened-list');
+  listEl.innerHTML = '';
+
+  if (list.length > 0) {
+    const fragment = document.createDocumentFragment();
+    list.forEach((card) => {
+      const date = moment(card.mtime).format(t('dateFormat'));
+      const item = document.createElement('LI');
+      item.innerHTML = `<p>
+        <a class="card-link" data-id="${card.id}">${card.cardName}</a>
+        <i class="fa fa-times card-remove" data-id="${card.id}" aria-hidden="true"></i>
+        <br>
+        <span class="label">${card.templateName}</span>
+        <span class="label">${date}</span>
+      </p>`;
+      fragment.appendChild(item);
+    });
+    listEl.appendChild(fragment);
+    setDisplay('opened-none', 'none');
+  } else {
+    setDisplay('opened-none', 'block');
+  }
 }
 
 

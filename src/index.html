@@ -32,7 +32,7 @@
 					</a>
 				</li>
 				<li>
-					<a id="saveBlank">
+					<a id="saveTemplate">
 						<i class="fa fa-file" aria-hidden="true"></i> 
 						uložit šablonu
 					</a>
@@ -50,22 +50,42 @@
 	<div class="grid-container">
 		<div id="dashboard" class="grid-x grid-margin-x">
 			<div class="cell">
-				<h2>Plánovací karty</h2>
+				<h2><b>Plánovací karty</b></h2>
 				<ul>
 					<li>Na této stránce můžete vyplňovat a upravovat své plánovací karty.</li>
 					<li>Všechny informace jsou uloženy ve vašem počítači a nikam se neodesílají, nezapomeňte však své karty proto ukládat.</li>
 					<li>Vytvořené karty můžete sdílet s ostatními.</li>
 				</ul>
 			</div>
-			<div class="cell medium-6">
-				<h3>Nahrát kartu</h3> 
-				<label class="callout"><input type="file" id="loadFromFile"></label>
+			<hr>
+			<div class="cell">
+				<h2>Otevřít kartu</h2>
+				<div class="grid-x grid-margin-x">
+					<div class="cell medium-4">
+						<h4>Nahrát ze souboru</h4> 
+						<label class="callout"><input type="file" id="loadFromFile"></label>
+					</div>
+					
+					<div class="cell medium-4">
+						<h4>Otevřít pomocí odkazu</h4> 
+						<form class="callout" method="GET" action=".">
+							<input type="text" name="cardurl" placeholder="odkaz">
+							<input type="submit" class="button" value="Otevřít">	
+						</form>
+					</div>
+					
+					<div class="cell medium-4">
+						<h4>Základní šablony</h4>
+						<ul>
+							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test.html">test</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="cell medium-6">
-				<h3>Základní šablony</h3>
-				<ul>
-					<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test.html">test</a></li>
-				</ul>
+			<div class="cell">
+				<h4>Rozpracované karty</h4>
+				<ul id="opened-list"></ul>
+				<p id="opened-none" class="callout">Nemáte rozpracované žádné karty.</p>
 			</div>
 		</div>
 		<form id="card"></form>
@@ -74,7 +94,7 @@
 	<footer>
 		<div class="grid-container grid-x">
 			<div class="cell">
-				<p>Vyvinuto…</p>
+				<p>Vyvinuto v rámci projektu…</p>
 			</div>
 		<div class="grid-container">
 	</footer>
