@@ -1,7 +1,13 @@
 const queryString = require('query-string');
+const moment = require('moment');
+
 const blocks = require('./blocks/blocks');
 const store = require('./store');
 const { allArray, findAncestor, updateCard } = require('./util');
+const translator = require('./translator');
+const t = translator.translate;
+
+translator.selectDictionary('cs');
 
 // dashboard / card
 function closeCard() {
@@ -101,7 +107,7 @@ function createAddBlockTool() {
     blockLink.classList.add('tool');
     blockLink.classList.add('addBlockType');
     blockLink.dataset.type = key;
-    blockLink.innerHTML = key;
+    blockLink.innerHTML = t('blocks', key);
     addBlockTool.querySelector('.content').appendChild(blockLink);
   });
   return addBlockTool;

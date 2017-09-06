@@ -7,6 +7,7 @@ rules:
   no-use-before-define: off
   no-nested-ternary: off
   no-new: off # pikaday
+  prefer-rest-params: off
   no-param-reassign: 
     - error
     - props: false

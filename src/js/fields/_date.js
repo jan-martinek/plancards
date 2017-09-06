@@ -1,6 +1,8 @@
-const { activate } = require('./util');
 const moment = require('moment');
 const Pikaday = require('pikaday');
+
+const { activate } = require('./util');
+const t = require('./../translator').translate;
 
 function init(el) {
   activate(el, 'date');
@@ -11,29 +13,23 @@ function decorate(el) {
   if (el.classList.contains('in')) {
     new Pikaday({
       field: el,
-      format: 'D. M. YYYY',
+      format: t('dateFormat'),
       firstDay: 1,
       onSelect: () => el.dispatchEvent(new Event('input')),
-      i18n: {
-        previousMonth: 'Předchozí měsíc',
-        nextMonth: 'Následující měsíc',
-        months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
-        weekdays: ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'],
-        weekdaysShort: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
-      },
+      i18n: t('pikadayNames'),
     });
   }
 }
 
 function read(el) {
-  return moment(el.value, 'D. M. YYYY');
+  return moment(el.value, t('dateFormat'));
 }
 
 function write(el, val) {
   if (typeof val === 'string') {
-    el.value = moment(val).format('D. M. YYYY');
+    el.value = moment(val).format(t('dateFormat'));
   } else if (typeof val === 'object' && val.format === moment.prototype.format) {
-    el.value = val.format('D. M. YYYY');
+    el.value = val.format(t('dateFormat'));
   }
 }
 
