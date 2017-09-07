@@ -7508,9 +7508,6 @@ a.thumbnail {
 html, body {
   margin-top: 35px; }
 
-h1, h2, h3, h4 {
-  margin-bottom: 0; }
-
 .top-bar {
   position: fixed;
   top: 0;
@@ -7582,7 +7579,7 @@ p {
     background: rgba(255, 255, 255, 0.3); }
   .edit-mode .block-tools .external-tools {
     margin-top: -0.7rem;
-    margin-left: -80px;
+    margin-left: -40px;
     float: left; }
     .edit-mode .block-tools .external-tools .tool {
       margin-right: 0.5em; }
@@ -7610,11 +7607,14 @@ p {
     .edit-mode .mode-toggle:hover .fa-check-circle {
       transform: scale(1.3) translate(-2px, 0); }
 
+.edit-mode .blockHandle {
+  cursor: move; }
+
 .edit-mode .add-block-tool {
   position: relative;
   z-index: 1;
   top: 13px;
-  left: -80px;
+  left: -40px;
   height: 0px; }
   .edit-mode .add-block-tool .arrow-up {
     width: 0;
@@ -7657,6 +7657,9 @@ p {
 .edit-mode .block:first-child .removeBlock, .edit-mode .block:first-child .external-tools a {
   display: none; }
 
+.edit-mode .block:last-child .removeBlock {
+  display: none; }
+
 .edit-mode .key-wrapper {
   margin-top: calc(-1rem - 1px); }
   .edit-mode .key-wrapper .input-group-label {
@@ -7665,9 +7668,21 @@ p {
     color: white;
     background: #1779ba; }
 
+.sortable-chosen {
+  background: yellow !important; }
+
+.sortable-drag {
+  background: #ddd !important; }
+
 hr {
   border: 1px solid #aaa;
   margin: 2em 0; }
+
+.block-countlist .countlist-header .desc {
+  padding: 0; }
+
+.block-countlist p, .block-countlist input {
+  margin-bottom: 0.4rem; }
 
 .block-indicator .is-true, .block-indicator .is-false {
   padding: 1rem; }
@@ -7695,6 +7710,16 @@ hr {
 
 .fill-mode .block-indicator.true .is-false {
   display: none; }
+
+.block-note p {
+  padding: 0;
+  font-style: italic; }
+
+.block-pricelist .pricelist-header .desc {
+  padding: 0; }
+
+.block-pricelist p, .block-pricelist input {
+  margin-bottom: 0.4rem; }
 
 @media print {
   .top-bar {
