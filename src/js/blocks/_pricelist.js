@@ -26,20 +26,22 @@ function hideEmpty(items) {
     lastEmpty = empty;
   });
 }
-const header = `<div class="cell medium-6"><p class="desc">Položka</p></div>
-                <div class="cell medium-2"><p class="desc">Cena</p></div>
-                <div class="cell medium-2"><p class="desc">Počet</p></div>
-                <div class="cell medium-2"><p class="desc">Celkem</p></div>`;
+const header = `<div class="cell"><div class="pricelist-header grid-x">
+    <div class="cell medium-6"><p class="desc">Položka</p></div>
+    <div class="cell medium-2"><p class="desc">Cena</p></div>
+    <div class="cell medium-2"><p class="desc">Počet</p></div>
+    <div class="cell medium-2"><p class="desc">Celkem</p></div>
+  </div></div>`;
 const row = `<div class="row grid-x pricelist-item">
-              <div class="cell medium-6"><input type="text" class="in text"></div>
-              <div class="cell medium-2"><input type="text" class="in number price"></div>
-              <div class="cell medium-2"><input type="text" class="in number units"></div>
-              <div class="cell medium-2"><input type="text" class="out number subtotal"></div>
-             </div>`;
+    <div class="cell medium-6"><input type="text" class="in text"></div>
+    <div class="cell medium-2"><input type="text" class="in number price"></div>
+    <div class="cell medium-2"><input type="text" class="in number units"></div>
+    <div class="cell medium-2"><input type="text" class="out number subtotal"></div>
+  </div>`;
 const totals = `<div class="totals grid-x">
-                  <div class="cell medium-6"><p class="desc">Celkem</p></div>
-                  <div class="cell medium-6"><input type="text" class="out name number total"></div>
-                 </div>`;
+    <div class="cell medium-6"><p class="desc">Celkem</p></div>
+    <div class="cell medium-6"><input type="text" class="out name number total"></div>
+  </div>`;
 
 function assemble() {
   const block = wrap('pricelist', `${header} <div class="cell">${row.repeat(10)} ${totals}</div>`);

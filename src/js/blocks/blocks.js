@@ -2,22 +2,32 @@ const { allArray } = require('./../util.js');
 const fields = require('./../fields/fields');
 const autosize = require('autosize');
 
+const bigtext = require('./_bigtext');
+const countlist = require('./_countlist');
 const dateinput = require('./_dateinput');
 const dateoutput = require('./_dateoutput');
+const doubletext = require('./_doubletext');
+const final = require('./_final');
 const header = require('./_header');
 const indicator = require('./_indicator');
 const pricelist = require('./_pricelist');
+const note = require('./_note');
 const number = require('./_number');
 const separator = require('./_separator');
 const subhead = require('./_subhead');
 const sum = require('./_sum');
 
 const all = {
+  bigtext,
+  countlist,
   dateinput,
   dateoutput,
+  doubletext,
+  final,
   header,
   indicator,
   pricelist,
+  note,
   number,
   separator,
   subhead,
