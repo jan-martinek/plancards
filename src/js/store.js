@@ -56,4 +56,9 @@ function importCardFromUrl(url, callback) {
 }
 
 
-module.exports = { importCardFromFile, importCardFromUrl, exportCard, exportTemplate };
+module.exports = {
+  importCardFromFile,
+  importCardFromUrl,
+  exportCard,
+  exportTemplate,
+};

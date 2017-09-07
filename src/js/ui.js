@@ -7,9 +7,9 @@ const store = require('./store');
 const { allArray, findAncestor, updateCard } = require('./util');
 const opened = require('./opened');
 const translator = require('./translator');
-const t = translator.translate;
 
 translator.selectDictionary('cs');
+const t = translator.translate;
 let blockSort;
 
 // dashboard / card
@@ -190,7 +190,7 @@ function initImportCard() {
     store.importCardFromUrl(query.cardurl, loadCard);
 
     const loc = window.location;
-    history.replaceState(null, null, `${loc.pathname}`);
+    window.history.replaceState(null, null, `${loc.pathname}`);
   }
 }
 
