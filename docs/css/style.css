@@ -7527,6 +7527,8 @@ header, footer {
 
 p {
   padding: 0.5rem 0; }
+  p input[type="text"] {
+    margin-bottom: 0; }
 
 .card-name, [name="_activity-name"] {
   font-weight: bold; }
@@ -7683,6 +7685,9 @@ hr {
 
 .block-countlist p, .block-countlist input {
   margin-bottom: 0.4rem; }
+
+.block-header .card-info p {
+  padding: 0; }
 
 .block-indicator .is-true, .block-indicator .is-false {
   padding: 1rem; }

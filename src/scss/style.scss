@@ -35,6 +35,8 @@ header, footer {
 
 p {
 	padding: 0.5rem 0;
+
+	input[type="text"] { margin-bottom: 0; }
 }
 
 .card-name, [name="_activity-name"] {
