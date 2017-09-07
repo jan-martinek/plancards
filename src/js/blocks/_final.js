@@ -1,7 +1,7 @@
 const { wrap, init } = require('./util');
 
 function getCode() {
-  return `<div class="cell"><p style="height: 1rem">&nbsp;</p></div>`;
+  return '<div class="cell"><p style="height: 1rem">&nbsp;</p></div>';
 }
 
 function assemble() {

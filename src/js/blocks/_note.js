@@ -1,7 +1,7 @@
 const { wrap, init } = require('./util');
 
 function getCode() {
-  return `<div class="cell"><p class="desc">Text poznámky</p></div>`;
+  return '<div class="cell"><p class="desc">Text poznámky</p></div>';
 }
 
 function assemble() {
