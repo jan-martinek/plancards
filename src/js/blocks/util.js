@@ -16,9 +16,17 @@ function wrap(type, html) {
   tools.innerHTML = `
     <div class="external-tools">
       <a class="addBlock tool"><i class="fa fa-plus" aria-hidden="true"></i></a>
-      <a class="swapBlocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+      <!-- <a class="swapBlocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a> -->
     </div>
-    <p class="internal-tools">${t('blocks', type)} <a class="removeBlock tool"><i class="fa fa-times" aria-hidden="true"></i></a></p>`;
+    <p class="internal-tools">
+      <span class="blockHandle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+        ${t('blocks', type)}
+      </span>
+      <a class="removeBlock tool">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </p>`;
   wrapper.insertAdjacentElement('afterbegin', tools);
   return wrapper;
 }

@@ -1,5 +1,6 @@
 const queryString = require('query-string');
 const moment = require('moment');
+const sortable = require('sortablejs');
 
 const blocks = require('./blocks/blocks');
 const store = require('./store');
@@ -9,6 +10,7 @@ const translator = require('./translator');
 const t = translator.translate;
 
 translator.selectDictionary('cs');
+let blockSort;
 
 // dashboard / card
 function closeCard() {
@@ -193,13 +195,26 @@ function initImportCard() {
 }
 
 function loadCard(data) {
+  const card = document.getElementById('card');
   const fragment = document.createDocumentFragment();
   data.forEach((block) => {
     fragment.appendChild(blocks.create(block.type, block.data));
   });
-  document.getElementById('card').appendChild(fragment);
+  card.appendChild(fragment);
   showCard();
   updateCard();
+
+  if (blockSort) blockSort.destroy();
+  blockSort = sortable.create(card, {
+    animation: 150,
+    handle: '.blockHandle',
+    draggable: '.block',
+    filter: '.block-header, .block-final',
+    preventOnFilter: false,
+    ghostClass: 'sortable-ghost',
+    chosenClass: 'sortable-chosen',
+    dragClass: 'sortable-drag',
+  });
 }
 
 function initCloseCard() {
