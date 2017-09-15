@@ -139,13 +139,14 @@ function initBlockTools() {
 // prep DOM and add listeners to ui
 function init() {
   initMode();
-  initImportCard();
   initExportCard();
   initBlockTools();
   initCloseCard();
   initOpened();
   preventSubmit();
   showDashboard();
+
+  initImportCard();
 }
 
 function initExportCard() {
@@ -186,12 +187,27 @@ function initImportCard() {
   });
 
   const query = queryString.parse(window.location.search);
-  if (query.cardurl) {
+  if (query.entry && query.entry === 'savedCard') {
+    highlightFileImport();
+    removeUrlParams();
+  } else if (query.cardurl) {
     store.importCardFromUrl(query.cardurl, loadCard);
-
-    const loc = window.location;
-    window.history.replaceState(null, null, `${loc.pathname}`);
+    removeUrlParams();
+  } else if (query.cardjson) {
+    store.importCardFromEncodedString(query.cardjson, loadCard);
+    removeUrlParams();
   }
+}
+
+function highlightFileImport() {
+  const input = document.getElementById('loadFromFile');
+  const label = findAncestor(input, 'callout');
+  label.insertBefore(document.createTextNode('Uložený soubor vyberte zde: '), input);
+  label.classList.add('labelHighlight');
+}
+
+function removeUrlParams() {
+  window.history.replaceState(null, null, `${window.location.pathname}`);
 }
 
 function loadCard(data) {

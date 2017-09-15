@@ -14,6 +14,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
+    "lz-string": "^1.4.4",
     "moment": "^2.18.1",
     "pikaday": "^1.6.1",
     "query-string": "^5.0.0",
