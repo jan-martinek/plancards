@@ -3,6 +3,7 @@ const date = require('./_date');
 const desc = require('./_desc');
 const number = require('./_number');
 const text = require('./_text');
+const checkbox = require('./_checkbox');
 
 const all = {
   bool,
@@ -10,6 +11,7 @@ const all = {
   desc,
   number,
   text,
+  checkbox,
 };
 
 function read(activeField) {

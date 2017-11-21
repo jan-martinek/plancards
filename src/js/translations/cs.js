@@ -10,8 +10,8 @@ const dictionary = {
   blocks: {
     bigtext: 'Velké textové pole',
     countlist: 'Položkový seznam (ks)',
-    dateinput: 'Datum (výpočet)',
-    dateoutput: 'Datum (vstupní pole)',
+    dateinput: 'Plánovaný termín',
+    dateoutput: 'Úkol s termínem',
     doubletext: 'Dvě textová pole',
     final: 'Závěrečný panel',
     header: 'Hlavička',

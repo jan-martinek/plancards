@@ -7689,6 +7689,9 @@ hr {
 .block-countlist p, .block-countlist input {
   margin-bottom: 0.4rem; }
 
+.block-dateoutput .todo [type="checkbox"] {
+  margin: 0; }
+
 .block-header .card-info p {
   padding: 0; }
 
