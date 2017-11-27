@@ -109,15 +109,35 @@ const blockActions = {
 function createAddBlockTool() {
   const addBlockTool = document.createElement('DIV');
   addBlockTool.classList.add('add-block-tool');
-  addBlockTool.innerHTML = '<div class="arrow-up"></div><div class="content"></div>';
-  Object.keys(blocks.all).forEach((key) => {
-    const blockLink = document.createElement('A');
-    blockLink.classList.add('tool');
-    blockLink.classList.add('add-block-type');
-    blockLink.dataset.type = key;
-    blockLink.innerHTML = t('blocks', key);
-    addBlockTool.querySelector('.content').appendChild(blockLink);
+  addBlockTool.innerHTML = '<div class="arrow-up"></div><div class="content grid-x grid-margin-x"></div>';
+  const content = addBlockTool.querySelector('.content');
+
+  Object.keys(blocks.nav).forEach((navGroup) => {
+    const fragment = document.createDocumentFragment();
+    const section = document.createElement('section');
+    section.classList.add('cell');
+    section.classList.add('medium-4');
+    section.innerHTML = `<p>${t('blockNav', navGroup)}</p>`;
+    fragment.appendChild(section);
+
+    blocks.nav[navGroup].forEach((key) => {
+      if (key === '---') {
+        section.appendChild(document.createElement('HR'));
+      } else {
+        const blockLink = document.createElement('A');
+        blockLink.classList.add('tool');
+        blockLink.classList.add('add-block-type');
+        blockLink.dataset.type = key;
+        blockLink.innerHTML = t('blocks', key);
+        section.appendChild(blockLink);
+      }
+
+
+    });
+
+    content.appendChild(fragment);
   });
+
   return addBlockTool;
 }
 

@@ -34,6 +34,30 @@ const all = {
   sum,
 };
 
+const nav = {
+  text: [
+    'bigtext',
+    'doubletext',
+    '---',
+    'number',
+    'sum',
+    '---',
+    'dateinput',
+    'dateoutput',
+  ],
+  list: [
+    'countlist',
+    'pricelist',
+  ],
+  context: [
+    'subhead',
+    'note',
+    'separator',
+    '---',
+    'indicator',
+  ],
+};
+
 function create(type, data) {
   const block = all[type].assemble();
   if (data) fill(block, data);
@@ -109,4 +133,5 @@ module.exports = {
   poll,
   fill,
   all,
+  nav,
 };

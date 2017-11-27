@@ -23,6 +23,11 @@ const dictionary = {
     subhead: 'Mezititulek',
     sum: 'Výpočet',
   },
+  blockNav: {
+    text: 'Políčka',
+    list: 'Seznamy',
+    context: 'Popisky',
+  },
 };
 
 module.exports = { dictionary };
