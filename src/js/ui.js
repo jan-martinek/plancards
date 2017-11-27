@@ -77,16 +77,16 @@ function toggleMode(mode) {
 
 // block tools
 const blockActions = {
-  swapBlocks: (button) => {
+  'swap-blocks': (button) => {
     const block = findAncestor(button, 'block');
     const previous = block.previousSibling;
     if (previous) block.parentNode.insertBefore(block, previous);
   },
-  removeBlock: (button) => {
+  'remove-block': (button) => {
     const block = findAncestor(button, 'block');
     block.remove();
   },
-  addBlock: (button) => {
+  'add-block': (button) => {
     if (button.classList.contains('opened')) {
       findAncestor(button, 'block-tools').querySelector('.add-block-tool').remove();
       button.classList.remove('opened');
@@ -96,12 +96,12 @@ const blockActions = {
       button.classList.add('opened');
     }
   },
-  addBlockType: (button) => {
+  'add-block-type': (button) => {
     const block = findAncestor(button, 'block');
     const newBlock = blocks.create(button.dataset.type);
     block.insertAdjacentElement('beforebegin', newBlock);
     toggleMode('edit'); // inits edit mode on block
-    findAncestor(button, 'block-tools').querySelector('.addBlock').classList.remove('opened');
+    findAncestor(button, 'block-tools').querySelector('.add-block').classList.remove('opened');
     findAncestor(button, 'add-block-tool').remove();
   },
 };
@@ -113,7 +113,7 @@ function createAddBlockTool() {
   Object.keys(blocks.all).forEach((key) => {
     const blockLink = document.createElement('A');
     blockLink.classList.add('tool');
-    blockLink.classList.add('addBlockType');
+    blockLink.classList.add('add-block-type');
     blockLink.dataset.type = key;
     blockLink.innerHTML = t('blocks', key);
     addBlockTool.querySelector('.content').appendChild(blockLink);

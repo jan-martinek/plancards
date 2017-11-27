@@ -192,9 +192,9 @@ p {
 			transform: scale(1.3);
 		}
 
-		&.removeBlock { color: $alert-color; }
-		&.swapBlocks { color: $secondary-color; }
-		&.addBlock {
+		&.remove-block { color: $alert-color; }
+		&.swap-blocks { color: $secondary-color; }
+		&.add-block {
 			color: $secondary-color;
 			&.opened { transform: rotate(45deg); }
 		}
@@ -206,10 +206,10 @@ p {
 	}
 
 	.block:first-child {
-		.removeBlock, .external-tools a { display: none; }
+		.remove-block, .external-tools a { display: none; }
 	}
 
-	.block:last-child .removeBlock { display: none; }
+	.block:last-child .remove-block { display: none; }
 
 	.key-wrapper {
 		margin-top: calc(-1rem - 1px);

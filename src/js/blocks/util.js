@@ -15,15 +15,15 @@ function wrap(type, html) {
   tools.classList.add('block-tools');
   tools.innerHTML = `
     <div class="external-tools">
-      <a class="addBlock tool"><i class="fa fa-plus" aria-hidden="true"></i></a>
-      <!-- <a class="swapBlocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a> -->
+      <a class="add-block tool"><i class="fa fa-plus" aria-hidden="true"></i></a>
+      <!-- <a class="swap-blocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a> -->
     </div>
     <p class="internal-tools">
       <span class="blockHandle">
         <i class="fa fa-bars" aria-hidden="true"></i>
         ${t('blocks', type)}
       </span>
-      <a class="removeBlock tool">
+      <a class="remove-block tool">
         <i class="fa fa-times" aria-hidden="true"></i>
       </a>
     </p>`;
