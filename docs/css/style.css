@@ -7621,6 +7621,12 @@ p {
   top: 13px;
   left: -40px;
   height: 0px; }
+  .edit-mode .add-block-tool p {
+    margin-bottom: 0;
+    color: black; }
+  .edit-mode .add-block-tool hr {
+    border: none;
+    margin: 1em 0; }
   .edit-mode .add-block-tool .arrow-up {
     width: 0;
     height: 0;
@@ -7639,30 +7645,30 @@ p {
   .edit-mode .add-block-tool .tool {
     padding: 5px;
     background: white;
-    margin: 0 10px 10px 0; }
+    margin: 0 0px 3px 0; }
 
 .edit-mode .tool {
-  display: inline-block;
+  display: block;
   transition: transform 0.3s ease-out; }
   .edit-mode .tool:hover {
     transform: scale(1.3); }
-  .edit-mode .tool.removeBlock {
+  .edit-mode .tool.remove-block {
     color: #cc4b37; }
-  .edit-mode .tool.swapBlocks {
+  .edit-mode .tool.swap-blocks {
     color: #767676; }
-  .edit-mode .tool.addBlock {
+  .edit-mode .tool.add-block {
     color: #767676; }
-    .edit-mode .tool.addBlock.opened {
+    .edit-mode .tool.add-block.opened {
       transform: rotate(45deg); }
 
 .edit-mode .desc {
   background: #eee;
   border: 1px dotted #aaa; }
 
-.edit-mode .block:first-child .removeBlock, .edit-mode .block:first-child .external-tools a {
+.edit-mode .block:first-child .remove-block, .edit-mode .block:first-child .external-tools a {
   display: none; }
 
-.edit-mode .block:last-child .removeBlock {
+.edit-mode .block:last-child .remove-block {
   display: none; }
 
 .edit-mode .key-wrapper {
