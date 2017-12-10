@@ -36,13 +36,16 @@ gulp.task('buildStyles', () => gulp.src(`${src}scss/style.scss`)
 gulp.task('copyFonts', () => gulp.src(['./node_modules/font-awesome/fonts/*'])
   .pipe(gulp.dest(`${dist}fonts/`)));
 
+gulp.task('copyImages', () => gulp.src([`${src}img/*`])
+  .pipe(gulp.dest(`${dist}img/`)));
+
 gulp.task('copyCards', () => gulp.src([`${src}cards/*`])
   .pipe(gulp.dest(`${dist}cards/`)));
 
 gulp.task('copyIndex', () => gulp.src([`${src}index.html`])
   .pipe(gulp.dest(dist)));
 
-gulp.task('watch', ['buildJs', 'buildStyles', 'copyIndex', 'copyFonts', 'copyCards'], () => {
+gulp.task('watch', ['buildJs', 'buildStyles', 'copyIndex', 'copyFonts', 'copyImages', 'copyCards'], () => {
   livereload.listen();
   gulp.watch(`${src}js/**/*.js`, ['buildJs']);
   gulp.watch(`${src}scss/**/*.scss`, ['buildStyles']);

@@ -19,10 +19,34 @@ h1, h2, h3, h4 {
 	top: 0; left: 0;
 	width: 100%;
 	box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+	z-index: 1;
 
 	a {
 		color: #444;
 		&:hover { color: black; }
+	}
+}
+
+.lang-selector {
+	text-align: right;
+
+	.current {
+		font-weight: bold;
+		color: $black;
+	}
+}
+
+.features {
+	margin-left: 0;
+
+	li {
+		list-style-type: none;
+		font-weight: bold;
+	}
+
+	img {
+		display: inline-block;
+		height: 3rem;
 	}
 }
 
@@ -254,4 +278,10 @@ hr {
 		border: none;
 		box-shadow: none;
 	}
+}
+
+footer img {
+	display: inline-block;
+	height: 100px;
+	margin: 0 30px 30px 0;
 }
