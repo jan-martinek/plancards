@@ -1,3 +1,5 @@
+const t = require('./../translator').translate('fields.util.');
+
 function activate(el, fieldName) {
   const wrapper = cel('DIV', ['key-wrapper', 'input-group']);
 
@@ -7,7 +9,7 @@ function activate(el, fieldName) {
     wrapper.appendChild(label);
     const name = cel('INPUT', ['name-setter', 'input-group-field']);
     name.addEventListener('input', () => nameInput(el, name.value));
-    name.setAttribute('placeholder', 'název');
+    name.setAttribute('placeholder', t('name'));
     wrapper.appendChild(name);
   }
   if (el.classList.contains('out')) {
@@ -18,7 +20,7 @@ function activate(el, fieldName) {
     wrapper.appendChild(label);
     const formula = cel('INPUT', ['formula-setter', 'input-group-field']);
     formula.addEventListener('input', () => appendFormula(el, formula.value));
-    formula.setAttribute('placeholder', 'vzorec');
+    formula.setAttribute('placeholder', t('formula'));
     wrapper.appendChild(formula);
     el.setAttribute('readonly', 'readonly');
   }

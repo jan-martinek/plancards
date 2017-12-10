@@ -1,5 +1,6 @@
 const fileSaver = require('file-saver');
 const lzs = require('lz-string');
+const t = require('./translator').translate;
 
 function wrapExport(title, data) {
   const json = JSON.stringify(data);
@@ -9,7 +10,7 @@ function wrapExport(title, data) {
   <html>
   <head>
     <meta charset="utf-8">
-    <title>Uložená karta "${title}"</title>
+    <title>${t('export.storedCard')} „${title}“</title>
 
     <style>
       body, html {
@@ -35,20 +36,20 @@ function wrapExport(title, data) {
   <body>
     <div class="wrapper">
       <h1>${title}</h1>
-      <p>Uložená karta z aplikace „Plánovací karty“.</p>
+      <p>${t('export.storedCardLong')}</p>
       <div class="box">
         <p>
-          Obsah karty můžete otevřít a upravovat
-          <a href="${url}?entry=savedCard">na webu Plánovacích karet</a>.
+          ${t('export.usage')}
+          <a href="${url}?entry=savedCard">${t('export.usageLoc')}</a>.
         </p>
 
         <div id="quickLink">
-          <h2>Rychlý odkaz</h2>
-
-          <p>S trochou štěstí stačí
-          <a href="${url}?cardjson=${encodedJson}">kliknout
-          na odkaz</a>. Není nicméně funkční vždy — záleží
-          to na prohlížeči a množství obsahu v kartě.</p>
+          <h2>${t('export.quickLink')}</h2>
+          <p>
+            ${t('export.luck')}
+            <a href="${url}?cardjson=${encodedJson}">${t('export.click')}</a>.
+            ${t('export.depends')}
+          </p>
         </div>
       </div>
     </div>
@@ -75,7 +76,7 @@ function unwrapExport(html) {
 }
 
 function exportCard(title, data) {
-  const titleFallback = 'karta';
+  const titleFallback = t('export.quickLink');
   const contents = wrapExport(title || titleFallback, data);
   const blob = new Blob([contents], { type: 'text/plain;charset=utf-8' });
   const today = new Date().toISOString().split('T')[0];
@@ -83,7 +84,7 @@ function exportCard(title, data) {
 }
 
 function exportTemplate(title, data) {
-  exportCard(title || 'šablona', data);
+  exportCard(title || t('export.template'), data);
 }
 
 function importCardFromFile(file, callback) {

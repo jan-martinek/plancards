@@ -1,4 +1,5 @@
 const { wrap, init } = require('./util');
+const t = require('./../translator').translate('blocks.dateoutput.');
 
 function getCode() {
   const todo = `<div class="grid-x todo">
@@ -15,7 +16,7 @@ function getCode() {
         <input type="text" class="out formula date">
       </div>
       <div class="cell medium-9">
-        <p class="desc">Popis</p>
+        <p class="desc">${t('description')}</p>
       </div>
       <div class="cell">
         ${todo.repeat(10)}

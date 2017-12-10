@@ -21,7 +21,7 @@ function wrap(type, html) {
     <p class="internal-tools">
       <span class="blockHandle">
         <i class="fa fa-bars" aria-hidden="true"></i>
-        ${t('blocks', type)}
+        ${t('blocks', type, 'name')}
       </span>
       <a class="remove-block tool">
         <i class="fa fa-times" aria-hidden="true"></i>

@@ -1,5 +1,6 @@
 const { wrap, init } = require('./util');
 const { read, write } = require('./../fields/fields');
+const t = require('./../translator').translate('blocks.countlist.');
 
 function update(el) {
   const rows = [].slice.call(el.querySelectorAll('.row'));
@@ -26,15 +27,15 @@ function hideEmpty(items) {
 }
 
 const header = `<div class="cell"><div class="countlist-header grid-x">
-    <div class="cell medium-10"><p class="desc">Položka</p></div>
-    <div class="cell medium-2"><p class="desc">Počet</p></div>
+    <div class="cell medium-10"><p class="desc">${t('unit')}</p></div>
+    <div class="cell medium-2"><p class="desc">${t('count')}</p></div>
   </div></div>`;
 const row = `<div class="row grid-x countlist-item">
     <div class="cell medium-10"><input type="text" class="in text"></div>
     <div class="cell medium-2"><input type="text" class="in number units"></div>
   </div>`;
 const totals = `<div class="totals grid-x">
-    <div class="cell medium-10"><p class="desc">Celkem</p></div>
+    <div class="cell medium-10"><p class="desc">${t('total')}</p></div>
     <div class="cell medium-2"><input type="text" class="out name number total"></div>
   </div>`;
 

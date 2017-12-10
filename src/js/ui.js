@@ -8,7 +8,6 @@ const { allArray, findAncestor, updateCard } = require('./util');
 const opened = require('./opened');
 const translator = require('./translator');
 
-translator.selectDictionary('cs');
 const t = translator.translate;
 let blockSort;
 
@@ -27,6 +26,23 @@ function showDashboard() {
   setDisplay('card', 'none');
   setDisplay('toolbar', 'none');
   setDisplay('dashboard', 'flex');
+
+  refreshTranslations();
+}
+
+function refreshTranslations() {
+  const currentLang = translator.getLang();
+
+  allArray(document.body, '[data-phrase]').forEach((el) => {
+    if (el.dataset.currentLang !== currentLang) {
+      el.dataset.currentLang = currentLang;
+      if (el.dataset.tt) {
+        el.setAttribute(el.dataset.tt, t(el.dataset.phrase));
+      } else {
+        el.innerHTML = t(el.dataset.phrase);
+      }
+    }
+  });
 }
 
 function showCard() {
@@ -115,6 +131,8 @@ function createAddBlockTool() {
   Object.keys(blocks.nav).forEach((navGroup) => {
     const fragment = document.createDocumentFragment();
     const section = document.createElement('section');
+
+
     section.classList.add('cell');
     section.classList.add('medium-4');
     section.innerHTML = `<p>${t('blockNav', navGroup)}</p>`;
@@ -128,11 +146,9 @@ function createAddBlockTool() {
         blockLink.classList.add('tool');
         blockLink.classList.add('add-block-type');
         blockLink.dataset.type = key;
-        blockLink.innerHTML = t('blocks', key);
+        blockLink.innerHTML = t('blocks', key, 'name');
         section.appendChild(blockLink);
       }
-
-
     });
 
     content.appendChild(fragment);
@@ -159,6 +175,7 @@ function initBlockTools() {
 // prep DOM and add listeners to ui
 function init() {
   initMode();
+  initLang();
   initExportCard();
   initBlockTools();
   initCloseCard();
@@ -167,6 +184,24 @@ function init() {
   showDashboard();
 
   initImportCard();
+}
+
+function initLang() {
+  const langs = translator.getLanguages();
+  const current = translator.getLang();
+  document.querySelector('.lang-selector').innerHTML = langs
+    .map(lang => `<a href="#"
+        data-lang="${lang.short}"
+        ${current == lang.short ? 'class="current"' : ''}
+      >${lang.name}</a>`)
+    .join(' &middot; ');
+  document.querySelectorAll('.lang-selector a').forEach((el) => {
+    el.addEventListener('click', () => {
+      translator.setLang(el.dataset.lang);
+      refreshTranslations();
+      initLang();
+    });
+  });
 }
 
 function initExportCard() {
@@ -222,7 +257,7 @@ function initImportCard() {
 function highlightFileImport() {
   const input = document.getElementById('loadFromFile');
   const label = findAncestor(input, 'callout');
-  label.insertBefore(document.createTextNode('Uložený soubor vyberte zde: '), input);
+  label.insertBefore(document.createTextNode(t('openFromFileHl') + ' '), input);
   label.classList.add('labelHighlight');
 }
 

@@ -1,9 +1,10 @@
 const { wrap, init } = require('./util');
+const t = require('./../translator').translate('blocks.subhead.');
 
 function getCode() {
   return `
     <div class="cell">
-      <h4 class="desc card-name">Mezititulek</h4>
+      <h4 class="desc card-name">${t('text')}</h4>
     </div>`;
 }
 

@@ -1,7 +1,8 @@
 const { wrap, init } = require('./util');
+const t = require('./../translator').translate('blocks.bigtext.');
 
 function getCode() {
-  return `<div class="cell"><p class="desc">Popis</p></div>
+  return `<div class="cell"><p class="desc">${t('description')}</p></div>
       <div class="cell"><textarea class="in name text"></textarea></div>`;
 }
 

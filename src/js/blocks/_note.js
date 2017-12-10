@@ -1,7 +1,8 @@
 const { wrap, init } = require('./util');
+const t = require('./../translator').translate('blocks.note.');
 
 function getCode() {
-  return '<div class="cell"><p class="desc">Text poznámky</p></div>';
+  return `<div class="cell"><p class="desc">${t('text')}</p></div>`;
 }
 
 function assemble() {
