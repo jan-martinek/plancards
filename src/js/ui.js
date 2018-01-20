@@ -192,7 +192,7 @@ function initLang() {
   document.querySelector('.lang-selector').innerHTML = langs
     .map(lang => `<a href="#"
         data-lang="${lang.short}"
-        ${current == lang.short ? 'class="current"' : ''}
+        ${current === lang.short ? 'class="current"' : ''}
       >${lang.name}</a>`)
     .join(' &middot; ');
   document.querySelectorAll('.lang-selector a').forEach((el) => {
@@ -278,7 +278,7 @@ function loadCard(data) {
   if (blockSort) blockSort.destroy();
   blockSort = sortable.create(card, {
     animation: 150,
-    handle: '.blockHandle',
+    handle: '.block-handle',
     draggable: '.block',
     filter: '.block-header, .block-final',
     preventOnFilter: false,

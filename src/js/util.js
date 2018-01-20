@@ -29,7 +29,7 @@ function updateCard() {
   const card = document.getElementById('card');
   const variables = Object.assign({}, collectVariables(card), customFunctions);
   updateFormulaResults(card, variables);
-  autosize.update(document.querySelector('textarea'));
+  autosize.update(document.querySelectorAll('textarea'));
 }
 
 function updateCardGently() {

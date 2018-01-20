@@ -19,7 +19,7 @@ function wrap(type, html) {
       <!-- <a class="swap-blocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a> -->
     </div>
     <p class="internal-tools">
-      <span class="blockHandle">
+      <span class="block-handle">
         <i class="fa fa-bars" aria-hidden="true"></i>
         ${t('blocks', type, 'name')}
       </span>

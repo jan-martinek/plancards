@@ -52,9 +52,13 @@ h1, h2, h3, h4 {
 
 header, footer {
 	margin-top: 2em;
-	margin-bottom: 2em;
+
 	padding: 2em 1em;
 	background: #eee;
+}
+
+header {
+	margin-bottom: 2em;
 }
 
 p {
@@ -117,7 +121,7 @@ p {
 
 	.block {
 		border-top: 1px dotted red;
-		background: #eee;
+		background: #fafafa;
 	}
 
 	.block-tools {
@@ -171,7 +175,7 @@ p {
 		}
 	}
 
-	.blockHandle {
+	.block-handle {
 		cursor: move;
 	}
 
@@ -219,7 +223,7 @@ p {
 	}
 
 	.tool {
-		display: block;
+		display: inline-block;
 		transition: transform 0.3s ease-out;
 
 		&:hover {
