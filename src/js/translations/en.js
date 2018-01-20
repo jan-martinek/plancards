@@ -1,4 +1,4 @@
-const dictionary = {
+module.exports = {
   lang: 'english',
   dateFormat: 'M/D/YYYY',
   app: {
@@ -24,6 +24,7 @@ const dictionary = {
     openFromFile: 'Load from file',
     openFromFileHl: 'Select a file from drive:',
     openFromUrl: 'Load from a web link (URL)',
+    openFromUrlPlaceholder: 'web link',
     basic: 'Basic templates',
     footer: 'Developed as part of a project Profesionalization of <a href="http://www.ranapecezlin.cz">Early Intervention Centre Zlin o.p.s.</a>, supported by European Social Fund. Project ID: CZ.03.3.60/0.0/0.0/15_031/0001866.',
     partners: 'Project’s partners are <a href="http://fundraising.cz">Czech Fundraising Center</a> and <a href="http://muni.cz">Masaryk University</a>.',
@@ -130,5 +131,3 @@ const dictionary = {
     depends: 'It does not work all the time — it depends on your browser and the content of the card.',
   },
 };
-
-module.exports = { dictionary };

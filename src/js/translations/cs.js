@@ -1,4 +1,4 @@
-const dictionary = {
+module.exports = {
   lang: 'česky',
   dateFormat: 'D. M. YYYY',
   app: {
@@ -24,6 +24,7 @@ const dictionary = {
     openFromFile: 'Nahrát ze souboru',
     openFromFileHl: 'Uložený soubor vyberte zde:',
     openFromUrl: 'Otevřít pomocí odkazu',
+    openFromUrlPlaceholder: 'odkaz',
     basic: 'Základní šablony',
     footer: 'Vyvinuto v rámci projektu Profesionalizace <a href="http://www.ranapecezlin.cz">Střediska rané péče EDUCO Zlín z.s.</a>, který byl podpořen z Evropského sociálního fondu. Registrační číslo projektu: CZ.03.3.60/0.0/0.0/15_031/0001866.',
     partners: 'Partnery projektu jsou <a href="http://fundraising.cz">České centrum fundraisingu</a> a <a href="http://muni.cz">Masarykova univerzita</a>.',
@@ -131,5 +132,3 @@ const dictionary = {
     depends: 'Není nicméně funkční vždy — záleží to na prohlížeči a množství obsahu v kartě.',
   },
 };
-
-module.exports = { dictionary };

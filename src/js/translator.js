@@ -1,5 +1,5 @@
-const cs = require('./translations/cs').dictionary;
-const en = require('./translations/en').dictionary;
+const cs = require('./translations/cs');
+const en = require('./translations/en');
 const cookies = require('doc-cookies');
 
 const dictionaries = {

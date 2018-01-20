@@ -257,7 +257,7 @@ function initImportCard() {
 function highlightFileImport() {
   const input = document.getElementById('loadFromFile');
   const label = findAncestor(input, 'callout');
-  label.insertBefore(document.createTextNode(t('openFromFileHl') + ' '), input);
+  label.insertBefore(document.createTextNode(`${t('openFromFileHl')} `), input);
   label.classList.add('labelHighlight');
 }
 

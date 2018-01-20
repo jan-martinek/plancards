@@ -28,10 +28,10 @@ function hideEmpty(items) {
   });
 }
 const header = `<div class="cell"><div class="pricelist-header grid-x">
-    <div class="cell medium-6"><p class="desc">${t('item')}Položka</p></div>
-    <div class="cell medium-2"><p class="desc">${t('price')}Cena</p></div>
-    <div class="cell medium-2"><p class="desc">${t('count')}Počet</p></div>
-    <div class="cell medium-2"><p class="desc">${t('total')}Celkem</p></div>
+    <div class="cell medium-6"><p class="desc">${t('item')}</p></div>
+    <div class="cell medium-2"><p class="desc">${t('price')}</p></div>
+    <div class="cell medium-2"><p class="desc">${t('count')}</p></div>
+    <div class="cell medium-2"><p class="desc">${t('total')}</p></div>
   </div></div>`;
 const row = `<div class="row grid-x pricelist-item">
     <div class="cell medium-6"><input type="text" class="in text"></div>
@@ -40,7 +40,7 @@ const row = `<div class="row grid-x pricelist-item">
     <div class="cell medium-2"><input type="text" class="out number subtotal"></div>
   </div>`;
 const totals = `<div class="totals grid-x">
-    <div class="cell medium-6"><p class="desc">${t('total')}Celkem</p></div>
+    <div class="cell medium-6"><p class="desc">${t('total')}</p></div>
     <div class="cell medium-6"><input type="text" class="out name number total"></div>
   </div>`;
 
