@@ -11,8 +11,13 @@ const translator = require('./translator');
 const t = translator.translate;
 let blockSort;
 
+const autosaveInterval = 5000;
+let autosaveTimer;
+
+
 // dashboard / card
 function closeCard() {
+  stopAutosave();
   opened.save(pollData(), getTemplateName(), getCardName());
   opened.close();
 
@@ -274,6 +279,7 @@ function loadCard(data) {
   card.appendChild(fragment);
   showCard();
   updateCard();
+  startAutosave();
 
   if (blockSort) blockSort.destroy();
   blockSort = sortable.create(card, {
@@ -288,9 +294,23 @@ function loadCard(data) {
   });
 }
 
+function startAutosave() {
+  clearInterval(autosaveTimer);
+  autosaveTimer = setInterval(saveCard, autosaveInterval);
+}
+
+function stopAutosave() {
+  clearInterval(autosaveTimer);
+}
+
+function saveCard() {
+  opened.save(pollData(), getTemplateName(), getCardName());
+}
+
 function initCloseCard() {
   document.getElementById('close').addEventListener('click', (e) => {
     closeCard();
+    stopAutosave();
     e.preventDefault();
   });
 }
