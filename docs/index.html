@@ -2,19 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title data-phrase="app.plancards">Plánovací karty</title>
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title data-phrase="app.plancards">PlanCards</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css?v=0.0.4">
 </head>
 <body>
 	<div id="toolbar" class="top-bar">
 		<div class="top-bar-left">
 			<ul class="menu">
-				<li class="menu-text" data-phrase="app.plancards">Plánovací karty</li>
+				<li class="menu-text" data-phrase="app.plancards"></li>
 				<li>
 					<a class="mode-toggle">
 						<i class="fa fa-th-large" aria-hidden="true"></i> 
-						<span class="fill-text" data-phrase="app.editCard">upravit kartu</span>
-						<span class="edit-text" data-phrase="app.editingNow">úpravy karty</span>
+						<span class="fill-text" data-phrase="app.editCard"></span>
+						<span class="edit-text" data-phrase="app.editingNow"></span>
 						<i class="fa fa-check-circle" aria-hidden="true"></i> 
 					</a>
 				</li>
@@ -26,19 +26,19 @@
 				<li>
 					<a id="save">
 						<i class="fa fa-download" aria-hidden="true"></i> 
-						<span data-phrase="app.download">stáhnout</span>
+						<span data-phrase="app.download"></span>
 					</a>
 				</li>
 				<li>
 					<a id="saveTemplate">
 						<i class="fa fa-file" aria-hidden="true"></i> 
-						<span data-phrase="app.templateDownload">stáhnout šablonu</span>
+						<span data-phrase="app.templateDownload"></span>
 					</a>
 				</li>
 				<li>
 					<a id="close">
 						<i class="fa fa-window-close" aria-hidden="true"></i> 
-						<span data-phrase="app.saveAndClose">uložit a zavřít</span>
+						<span data-phrase="app.saveAndClose"></span>
 					</a>
 				</li>
 			</ul>
@@ -51,19 +51,19 @@
 				<p class="lang-selector">Jazyky</p>
 			</div>
 			<div class="cell medium-5">
-				<h2><b data-phrase="app.plancards">Plánovací karty</b></h2>
+				<h2><b data-phrase="app.plancards"></b></h2>
 				<ul class="features">
 					<li>
 						<img src="./img/glyphicons-30-notes-2.svg"> 
-						<span data-phrase="home.note">Zaznamenávejte své postupy</span>
+						<span data-phrase="home.note"></span>
 					</li>
 					<li>
 						<img src="./img/glyphicons-153-check.svg"> 
-						<span data-phrase="home.improve">Zlepšujte svou práci</span>
+						<span data-phrase="home.improve"></span>
 					</li>
 					<li>
 						<img src="./img/glyphicons-309-share-alt.svg"> 
-						<span data-phrase="home.share">Sdílejte dobrou praxi</span>
+						<span data-phrase="home.share"></span>
 					</li>
 				</ul>
 			</div>
@@ -77,23 +77,23 @@
 			</div>
 			<hr>
 			<div class="cell">
-				<h2 data-phrase="home.open">Otevřít kartu</h2>
+				<h2 data-phrase="home.open"></h2>
 				<div class="grid-x grid-margin-x">
 					<div class="cell medium-4">
-						<h4 data-phrase="home.openFromFile">Nahrát ze souboru</h4> 
+						<h4 data-phrase="home.openFromFile"></h4> 
 						<label class="callout"><input type="file" id="loadFromFile"></label>
 					</div>
 					
 					<div class="cell medium-4">
-						<h4 data-phrase="home.openFromUrl">Otevřít pomocí odkazu</h4> 
+						<h4 data-phrase="home.openFromUrl"></h4> 
 						<form class="callout" method="GET" action=".">
-							<input type="text" name="cardurl" placeholder="odkaz">
-							<input type="submit" class="button" value="Otevřít" data-phrase="home.openButton" data-tt="value">	
+							<input type="text" name="cardurl" data-phrase="home.openFromUrlPlaceholder" data-tt="placeholder">
+							<input type="submit" class="button" data-phrase="home.openButton" data-tt="value">	
 						</form>
 					</div>
 					
 					<div class="cell medium-4">
-						<h4 data-phrase="home.basic">Základní šablony</h4>
+						<h4 data-phrase="home.basic"></h4>
 						<ul>
 							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/new.html">nová karta</a></li>
 							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test.html">testovací karta (aukce)</a></li>
@@ -104,9 +104,9 @@
 				</div>
 			</div>
 			<div class="cell">
-				<h4 data-phrase="home.opened">Rozpracované karty</h4>
-				<ul id="opened-list"></ul>
-				<p id="opened-none" class="callout" data-phrase="home.noneOpened">Nemáte rozpracované žádné karty.</p>
+				<h4 data-phrase="home.workspace"></h4>
+				<ul id="workspace"></ul>
+				<p id="none-opened" class="callout" data-phrase="home.noneOpened"></p>
 			</div>
 		</div>
 		<form id="card"></form>
@@ -115,17 +115,17 @@
 	<footer>
 		<div class="grid-container grid-x">
 			<div class="cell">
-				<p data-phrase="home.footer">Profesionalizace Střediska rané péče EDUCO Zlín z.s., který byl podpořen z ESF. Registrační číslo projektu: CZ.03.3.60/0.0/0.0/15_031/0001866.</p>
+				<p data-phrase="home.footer"></p>
 			
 				<img src="./img/educo.png">
 				<img src="./img/eu.png">
 
-				<p data-phrase="home.partners">Partnery projektu jsou <a href="http://fundraising.cz">České centrum fundraisingu</a> a <a href="http://muni.cz">Masarykova univerzita</a>.</p>
+				<p data-phrase="home.partners"></p>
 				
 				<img src="./img/ccf.png">
 				<img src="./img/mu.png">
 			</div>
 		<div class="grid-container">
 	</footer>
-	<script type="text/javascript" src="./js/main.js?v=3"></script>
+	<script type="text/javascript" src="./js/main.js?v=0.0.4"></script>
 </html>

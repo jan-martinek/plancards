@@ -7537,9 +7537,11 @@ html, body {
 
 header, footer {
   margin-top: 2em;
-  margin-bottom: 2em;
   padding: 2em 1em;
   background: #eee; }
+
+header  {
+  margin-bottom: 2em; }
 
 p {
   padding: 0.5rem 0; }
@@ -7558,24 +7560,24 @@ p {
 .labelHighlight {
   background: #ffa; }
 
-#opened-list i {
+#workspace i {
   color: #cc4b37;
   transition: transform 0.3s ease-out;
   cursor: pointer; }
-  #opened-list i:hover {
+  #workspace i:hover {
     transform: scale(1.3); }
 
-#opened-list p {
+#workspace p {
   margin-bottom: 0rem; }
 
-#opened-list .label {
+#workspace .label {
   color: #777;
   background: #ddd; }
 
 .fill-mode .hide-in-fill-mode {
   display: none; }
 
-.fill-mode .block-tools, .fill-mode .key-wrapper {
+.fill-mode .block-tools, .fill-mode .descriptors {
   display: none; }
 
 .fill-mode .mode-toggle .fa-check-circle, .fill-mode .mode-toggle .edit-text {
@@ -7586,18 +7588,20 @@ p {
 
 .edit-mode .block {
   border-top: 1px dotted red;
-  background: #eee; }
+  background: #fafafa; }
 
 .edit-mode .block-tools {
-  height: 1rem; }
+  height: 1rem;
+  position: relative; }
   .edit-mode .block-tools .internal-tools {
-    float: right;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 0.5rem;
     margin-right: -0.9375rem;
     font-size: 0.9rem;
     line-height: 1;
-    background: rgba(255, 255, 255, 0.3); }
+    background: rgba(255, 255, 255, 0.7); }
   .edit-mode .block-tools .external-tools {
     margin-top: -0.7rem;
     margin-left: -40px;
@@ -7628,7 +7632,7 @@ p {
     .edit-mode .mode-toggle:hover .fa-check-circle {
       transform: scale(1.3) translate(-2px, 0); }
 
-.edit-mode .blockHandle {
+.edit-mode .block-handle {
   cursor: move; }
 
 .edit-mode .add-block-tool {
@@ -7664,36 +7668,63 @@ p {
     margin: 0 0px 3px 0; }
 
 .edit-mode .tool {
-  display: block;
+  display: inline-block;
   transition: transform 0.3s ease-out; }
   .edit-mode .tool:hover {
     transform: scale(1.3); }
   .edit-mode .tool.remove-block {
-    color: #cc4b37; }
+    color: #cc4b37;
+    margin-left: 1rem; }
   .edit-mode .tool.swap-blocks {
     color: #767676; }
   .edit-mode .tool.add-block {
     color: #767676; }
     .edit-mode .tool.add-block.opened {
       transform: rotate(45deg); }
+  .edit-mode .tool.add-block-type {
+    margin: 0 3px 3px 0; }
 
 .edit-mode .desc {
   background: #eee;
   border: 1px dotted #aaa; }
 
-.edit-mode .block:first-child .remove-block, .edit-mode .block:first-child .external-tools a {
+.edit-mode .block:first-child .remove-block,
+.edit-mode .block:first-child .external-tools a {
   display: none; }
 
 .edit-mode .block:last-child .remove-block {
   display: none; }
 
-.edit-mode .key-wrapper {
-  margin-top: calc(-1rem - 1px); }
-  .edit-mode .key-wrapper .input-group-label {
-    padding: 0 .4rem; }
-  .edit-mode .key-wrapper .fieldName {
-    color: white;
-    background: #1779ba; }
+.edit-mode .descriptors {
+  margin-top: calc(-1rem - 1px);
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  display: flex;
+  border: 1px solid #cacaca;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  background: white;
+  opacity: 0.8; }
+  .edit-mode .descriptors .descriptor {
+    display: block;
+    flex: 1; }
+  .edit-mode .descriptors .formula-descriptor {
+    flex: 2; }
+  .edit-mode .descriptors .descriptor-label {
+    width: 1.5rem;
+    padding: 0;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    color: #777;
+    text-align: center;
+    font-weight: bold; }
+  .edit-mode .descriptors .descriptor-value {
+    display: inline-block;
+    margin: 0 0 0 -1.5rem;
+    padding-left: 1.5rem;
+    width: 100%;
+    border: 0; }
 
 .sortable-chosen {
   background: yellow !important; }
@@ -7710,6 +7741,9 @@ hr {
 
 .block-countlist p, .block-countlist input {
   margin-bottom: 0.4rem; }
+
+.block-countlist .descriptors {
+  margin-top: calc(-0.4rem - 1px); }
 
 .block-dateoutput .todo [type="checkbox"] {
   margin: 0; }
@@ -7753,6 +7787,9 @@ hr {
 
 .block-pricelist p, .block-pricelist input {
   margin-bottom: 0.4rem; }
+
+.block-pricelist .descriptors {
+  margin-top: calc(-0.4rem - 1px); }
 
 @media print {
   .top-bar {
