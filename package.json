@@ -15,6 +15,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
+    "gulp-version-append": "^0.2.0",
     "lz-string": "^1.4.4",
     "moment": "^2.18.1",
     "pikaday": "^1.6.1",
@@ -28,5 +29,25 @@
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0"
-  }
+  },
+  "name": "plancards",
+  "description": "Intro app for fundraisers (prototype)",
+  "version": "0.0.4",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jan-martinek@github.com/jan-martinek/plancards.git"
+  },
+  "author": "Jan Martinek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jan-martinek/plancards/issues"
+  },
+  "homepage": "https://github.com/jan-martinek/plancards#readme"
 }

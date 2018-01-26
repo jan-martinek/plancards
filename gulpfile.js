@@ -7,6 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const livereload = require('gulp-livereload');
 const sass = require('gulp-sass');
 const plumber = require('gulp-plumber');
+const version = require('gulp-version-append');
 
 const src = './src/';
 const dist = './docs/';
@@ -43,6 +44,7 @@ gulp.task('copyCards', () => gulp.src([`${src}cards/*`])
   .pipe(gulp.dest(`${dist}cards/`)));
 
 gulp.task('copyIndex', () => gulp.src([`${src}index.html`])
+  .pipe(version(['js', 'css']))
   .pipe(gulp.dest(dist)));
 
 gulp.task('watch', ['buildJs', 'buildStyles', 'copyIndex', 'copyFonts', 'copyImages', 'copyCards'], () => {
