@@ -19,7 +19,7 @@ module.exports = {
     shareHow: 'Vytvořené karty můžete sdílet s ostatními — pošlete je mailem, sdílejte je na internetu.',
     open: 'Otevřít kartu',
     openButton: 'Otevřít',
-    opened: 'Rozpracované karty',
+    workspace: 'Rozpracované karty',
     noneOpened: 'Nemáte rozpracované žádné karty.',
     openFromFile: 'Nahrát ze souboru',
     openFromFileHl: 'Uložený soubor vyberte zde:',

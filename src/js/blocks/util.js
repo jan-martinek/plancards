@@ -1,4 +1,4 @@
-const { allArray, updateCardGently } = require('./../util.js');
+const { allArray } = require('./../util.js');
 const fields = require('./../fields/fields');
 const t = require('./../translator').translate;
 
@@ -16,7 +16,6 @@ function wrap(type, html) {
   tools.innerHTML = `
     <div class="external-tools">
       <a class="add-block tool"><i class="fa fa-plus" aria-hidden="true"></i></a>
-      <!-- <a class="swap-blocks tool"><i class="fa fa-arrow-up" aria-hidden="true"></i><i class="fa fa-arrow-down" aria-hidden="true"></i></a> -->
     </div>
     <p class="internal-tools">
       <span class="block-handle">
@@ -40,7 +39,6 @@ function init(wrapper, update) {
   });
   allArray(wrapper, '.in').forEach(el => el.addEventListener('input', () => {
     if (update) update(wrapper);
-    updateCardGently();
   }));
 }
 

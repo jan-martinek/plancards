@@ -5,5 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function run() {
+  preventSubmit();
+
   ui.init();
+}
+
+function preventSubmit() {
+  document.getElementById('card').addEventListener('submit', e => e.preventDefault());
 }

@@ -19,7 +19,7 @@ module.exports = {
     shareHow: 'Share cards with other people — use e-mail or upload them on the web.',
     open: 'Open card',
     openButton: 'Open',
-    opened: 'Opened cards',
+    workspace: 'Opened cards',
     noneOpened: 'You have no currently opened cards.',
     openFromFile: 'Load from file',
     openFromFileHl: 'Select a file from drive:',

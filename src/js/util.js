@@ -1,9 +1,3 @@
-const fields = require('./fields/fields');
-const parser = require('expr-eval').Parser;
-const autosize = require('autosize');
-
-let timer;
-
 function makeArray(nodelist) {
   return [].slice.call(nodelist);
 }
@@ -19,42 +13,45 @@ function findAncestor(el, className) {
   return findAncestor(parent, className);
 }
 
+function setClasses(el, add, remove) {
+  if (add && add.length > 0) {
+    add.forEach(className => el.classList.add(className));
+  }
+  if (remove && remove.length > 0) {
+    remove.forEach(className => el.classList.remove(className));
+  }
+}
 
-const customFunctions = {
-  daysAfter: (date, days) => date.clone().add(days, 'days'),
-  daysBefore: (date, days) => date.clone().subtract(days, 'days'),
+
+const displayValues = {
+  card: { shown: 'block', hidden: 'none' },
+  toolbar: { shown: 'flex', hidden: 'none' },
+  dashboard: { shown: 'flex', hidden: 'none' },
+  'none-opened': { shown: 'block', hidden: 'none' },
 };
 
-function updateCard() {
-  const card = document.getElementById('card');
-  const variables = Object.assign({}, collectVariables(card), customFunctions);
-  updateFormulaResults(card, variables);
-  autosize.update(document.querySelectorAll('textarea'));
-}
-
-function updateCardGently() {
-  clearTimeout(timer);
-  timer = setTimeout(updateCard, 180);
-}
-
-function updateFormulaResults(card, variables) {
-  allArray(card, '.formula').forEach((el) => {
-    if (el.dataset.formula) {
-      fields.write(el, parser.evaluate(el.dataset.formula, variables));
-      const block = findAncestor(el, 'block');
-      block.dispatchEvent(new Event('externalUpdate'));
-    }
+function show() {
+  [].forEach.call(arguments, (id) => {
+    document.getElementById(id).style.display = displayValues[id].shown;
   });
 }
 
-function collectVariables(card) {
-  return allArray(card, '[name]').reduce((acc, el) => {
-    acc[el.getAttribute('name')] = fields.read(el);
-    return acc;
-  }, {});
+function hide() {
+  [].forEach.call(arguments, (id) => {
+    document.getElementById(id).style.display = displayValues[id].hidden;
+  });
+}
+
+function removeUrlParams() {
+  window.history.replaceState(null, null, `${window.location.pathname}`);
 }
 
 
 module.exports = {
-  allArray, findAncestor, updateCard, updateCardGently,
+  allArray,
+  findAncestor,
+  setClasses,
+  show,
+  hide,
+  removeUrlParams,
 };

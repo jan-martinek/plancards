@@ -87,13 +87,13 @@ function exportTemplate(title, data) {
   exportCard(title || t('export.template'), data);
 }
 
-function importCardFromFile(file, callback) {
+function importFromFile(file, callback) {
   const reader = new FileReader();
   reader.readAsText(file);
   reader.onload = e => callback(unwrapExport(e.target.result));
 }
 
-function importCardFromUrl(url, callback) {
+function importFromUrl(url, callback) {
   const request = new XMLHttpRequest();
   request.open('GET', url, true);
   request.send();
@@ -104,14 +104,14 @@ function importCardFromUrl(url, callback) {
   };
 }
 
-function importCardFromEncodedString(string, callback) {
+function importFromEncodedString(string, callback) {
   callback(JSON.parse(lzs.decompressFromEncodedURIComponent(string)));
 }
 
 module.exports = {
-  importCardFromFile,
-  importCardFromUrl,
-  importCardFromEncodedString,
+  importFromFile,
+  importFromUrl,
+  importFromEncodedString,
   exportCard,
   exportTemplate,
 };
