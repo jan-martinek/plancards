@@ -1,7 +1,6 @@
 const cs = require('./translations/cs');
 const en = require('./translations/en');
 const cookies = require('doc-cookies');
-const { allArray } = require('./util');
 
 const dictionaries = {
   en,
@@ -35,26 +34,10 @@ function translate(keys) {
   return keylist.reduce((prev, curr) => (prev ? prev[curr] : undefined), dictionary);
 }
 
-function refreshTranslations() {
-  const currentLang = getLang();
-
-  allArray(document.querySelector('html'), '[data-phrase]').forEach((el) => {
-    if (el.dataset.currentLang !== currentLang) {
-      el.dataset.currentLang = currentLang;
-      if (el.dataset.tt) {
-        el.setAttribute(el.dataset.tt, translate(el.dataset.phrase));
-      } else {
-        el.innerHTML = translate(el.dataset.phrase);
-      }
-    }
-  });
-}
-
 
 module.exports = {
   setLang,
   getLang,
   getLanguages,
   translate,
-  refreshTranslations,
 };

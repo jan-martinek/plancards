@@ -1,4 +1,4 @@
-const { allArray } = require('./../util.js');
+const { allArray } = require('./../ui/util.js');
 const fields = require('./../fields/fields');
 const t = require('./../translator').translate;
 

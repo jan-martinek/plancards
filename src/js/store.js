@@ -93,6 +93,14 @@ function importFromFile(file, callback) {
   reader.onload = e => callback(unwrapExport(e.target.result));
 }
 
+function urlImport(query, callback) {
+  if (query.cardurl) {
+    importFromUrl(query.cardurl, callback);
+  } else if (query.cardjson) {
+    importFromEncodedString(query.cardjson, callback);
+  }
+}
+
 function importFromUrl(url, callback) {
   const request = new XMLHttpRequest();
   request.open('GET', url, true);
@@ -110,8 +118,7 @@ function importFromEncodedString(string, callback) {
 
 module.exports = {
   importFromFile,
-  importFromUrl,
-  importFromEncodedString,
+  urlImport,
   exportCard,
   exportTemplate,
 };

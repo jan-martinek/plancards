@@ -1,4 +1,4 @@
-const ui = require('./ui');
+const app = require('./app');
 
 document.addEventListener('DOMContentLoaded', () => {
   run();
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function run() {
   preventSubmit();
 
-  ui.init();
+  app.init();
 }
 
 function preventSubmit() {
