@@ -7560,19 +7560,23 @@ p {
 .labelHighlight {
   background: #ffa; }
 
-#workspace i {
-  color: #cc4b37;
-  transition: transform 0.3s ease-out;
-  cursor: pointer; }
-  #workspace i:hover {
-    transform: scale(1.3); }
+.fieldset {
+  padding-bottom: 0; }
 
-#workspace p {
-  margin-bottom: 0rem; }
-
-#workspace .label {
-  color: #777;
-  background: #ddd; }
+#workspace {
+  list-style-type: none;
+  margin-left: 0; }
+  #workspace i {
+    color: #cc4b37;
+    transition: transform 0.3s ease-out;
+    cursor: pointer; }
+    #workspace i:hover {
+      transform: scale(1.3); }
+  #workspace p {
+    margin-bottom: 0rem; }
+  #workspace .label {
+    color: #777;
+    background: #ddd; }
 
 .fill-mode .hide-in-fill-mode {
   display: none; }
