@@ -75,39 +75,43 @@
 					<li data-phrase="home.shareHow">Vytvořené karty můžete sdílet s ostatními — pošlete je mailem, sdílejte je na internetu.</li>
 				</ul>
 			</div>
-			<hr>
-			<div class="cell">
-				<h2 data-phrase="home.open"></h2>
-				<div class="grid-x grid-margin-x">
-					<div class="cell medium-4">
-						<h4 data-phrase="home.openFromFile"></h4> 
-						<label class="callout"><input type="file" id="loadFromFile"></label>
-					</div>
-					
-					<div class="cell medium-4">
-						<h4 data-phrase="home.openFromUrl"></h4> 
-						<form class="callout" method="GET" action=".">
-							<input type="text" name="cardurl" data-phrase="home.openFromUrlPlaceholder" data-tt="placeholder">
-							<input type="submit" class="button" data-phrase="home.openButton" data-tt="value">	
-						</form>
-					</div>
-					
-					<div class="cell medium-4">
-						<h4 data-phrase="home.basic"></h4>
-						<ul>
-							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/new.html">nová karta</a></li>
-							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test.html">testovací karta (aukce)</a></li>
-							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test-en.html"> test card (auction)</a></li>
-							<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/beh-do-kopce.html">běh pro hospic</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="cell">
-				<h4 data-phrase="home.workspace"></h4>
+			<div class="cell medium-7">
+				<h3 data-phrase="home.workspace"></h3>
 				<ul id="workspace"></ul>
 				<p id="none-opened" class="callout" data-phrase="home.noneOpened"></p>
 			</div>
+			<div class="cell medium-5">
+				<h3 data-phrase="home.open"></h3>
+		
+				<fieldset class="fieldset">
+					<legend data-phrase="home.openFromFile"></legend>
+					<label for="loadFromFile" class="button">Upload File</label>
+					<input type="file" id="loadFromFile"  class="show-for-sr"></label>
+				</fieldset>
+				
+				<form method="GET" action=".">
+				<fieldset class="fieldset">
+				  <legend data-phrase="home.openFromUrl"></legend>
+				  <div class="input-group">
+  					<input class="input-group-field" type="text" name="cardurl" data-phrase="home.openFromUrlPlaceholder" data-tt="placeholder">
+  					<div class="input-group-button">
+    					<input type="submit" class="button" data-phrase="home.openButton" data-tt="value">	
+  					</div>
+					</div>
+				</fieldset>
+				</form>
+				
+				<fieldset class="fieldset">
+					<legend data-phrase="home.basic"></legend>
+					<ul>
+						<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/new.html">nová karta</a></li>
+						<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test.html">testovací karta (aukce)</a></li>
+						<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/test-en.html"> test card (auction)</a></li>
+						<li><a href="?cardurl=https://jan-martinek.github.io/plancards/cards/beh-do-kopce.html">běh pro hospic</a></li>
+					</ul>
+				</fieldset>
+			</div>
+			
 		</div>
 		<form id="card"></form>
 	</div>

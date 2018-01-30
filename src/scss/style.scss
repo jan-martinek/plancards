@@ -83,7 +83,14 @@ p {
 	background: #ffa;
 }
 
+.fieldset {
+	padding-bottom: 0;
+}
+
 #workspace {
+	list-style-type: none;
+	margin-left: 0;
+
 	i {
 		color: $alert-color;
 		transition: transform 0.3s ease-out;
